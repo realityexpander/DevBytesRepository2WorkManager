@@ -16,6 +16,7 @@
 
 package com.example.android.devbyteviewer.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.example.android.devbyteviewer.database.VideosDatabase
