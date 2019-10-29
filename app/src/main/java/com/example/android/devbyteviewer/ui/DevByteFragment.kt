@@ -46,7 +46,7 @@ class DevByteFragment : Fragment() {
      * lazy. This requires that viewModel not be referenced before onActivityCreated, which we
      * do in this Fragment.
      */
-    private val viewModel: DevByteViewModel by lazy {
+     val viewModel: DevByteViewModel by lazy {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
@@ -67,6 +67,8 @@ class DevByteFragment : Fragment() {
      */
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        // Listen for changes to playlist from repository (database or network)
         viewModel.playlist.observe(viewLifecycleOwner, Observer<List<DevByteVideo>> { videos ->
             videos?.apply {
                 viewModelAdapter?.videos = videos
